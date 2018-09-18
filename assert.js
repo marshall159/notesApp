@@ -3,7 +3,7 @@ var assert = {
     isTruthy: function (assertionToCheck) {
         if (!assertionToCheck) {
             this.log.push(Error("Assertion failed: " + assertionToCheck + " is not truthy"))
-        } else this.log.push(`Pass: ${assertionToCheck}`)
+        } else this.log.push(`Pass: ${assertionToCheck} is truthy`)
     },
     isEqual: function (assertionOne, assertionTwo) {
         if (assertionOne !== assertionTwo) {
