@@ -6,6 +6,15 @@ function allTests() {
     }
     noteTest();
 
+    function noteList() {
+        let noteList = new NoteList()
+        noteList.createNote('My favourite language is JavaScript');
+        let notesArray = noteList.getAllNotes()
+        assert.isIncluded(notesArray[0].getText(), 'My favourite language is JavaScript');
+
+    }
+    noteList()
+
     // assert.isEqual(1 + 1, 3);
     // assert.isEqual(1 + 1, 2);
     // assert.isEqual(1 + 1, 3);
