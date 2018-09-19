@@ -1,0 +1,23 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "Front-end Notes App in vanilla JS",
+  "main": "assert.js",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marshall159/notesApp.git"
+  },
+  "author": "Aneel Marshall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marshall159/notesApp/issues"
+  },
+  "homepage": "https://github.com/marshall159/notesApp#readme"
+}
