@@ -15,6 +15,16 @@ function allTests() {
     }
     noteList()
 
+    function noteListView() {
+        let noteList = new NoteList();
+        noteList.createNote('Favourite food: pesto');
+        noteList.createNote('Favourite drink: seltzer');
+        let noteListView = new NoteListView(noteList);
+        assert.isEqual(noteListView.toHTML(),
+        "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>")
+    }
+    noteListView()
+
     // assert.isEqual(1 + 1, 3);
     // assert.isEqual(1 + 1, 2);
     // assert.isEqual(1 + 1, 3);
