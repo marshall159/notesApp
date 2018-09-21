@@ -25,9 +25,38 @@ function allTests() {
     }
     noteListView()
 
+    function noteController() {
+
+        function NoteListDouble() {}
+
+        NoteListDouble.prototype.createNote = function(string) {
+        }
+
+        function NoteListViewDouble() {}
+
+        NoteListViewDouble.prototype.toHTML = function() {
+            return '<ul><li><div>Favourite drink: seltzer</div></li></ul>'
+        }
+
+        let noteList = new NoteListDouble();
+
+        let controller = new NoteController(noteList, NoteListViewDouble);
+        //
+        assert.isEqual(controller.constructor, NoteController);
+        //
+
+        let elem = {
+            innerHTML: ''
+        };
+
+        controller.insertHTML(elem);
+        assert.isEqual(elem.innerHTML,
+            '<ul><li><div>Favourite drink: seltzer</div></li></ul>')
+
+    }
+    noteController()
 
     assert.showLog()
-
 
 }
 

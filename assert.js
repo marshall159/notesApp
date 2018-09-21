@@ -11,6 +11,11 @@ var assert = {
         } else this.log.push(`Pass: ${assertionOne} == ${assertionTwo}`)
 
     },
+    isSameObject: function(assertionOne, assertionTwo) {
+        if (!Object.is(assertionOne, assertionTwo)) {
+            this.log.push(Error(`Assertion failed: ${assertionOne} and ${assertionTwo} are not the same object`))
+        } else this.log.push(`Pass: ${assertionOne} and ${assertionTwo} are the same object`)
+    },
     isIncluded: function (assertionOne, assertionTwo) {
         if (!assertionOne.includes(assertionTwo)) {
             this.log.push(Error(`Assertion failed: ${assertionOne} does not include ${assertionTwo}`))
@@ -28,6 +33,7 @@ var assert = {
         })
     }
 };
+
 
 
 
