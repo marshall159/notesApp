@@ -56,6 +56,23 @@ function allTests() {
     }
     noteController()
 
+
+    function singleNoteView() {
+        function NoteDouble() {
+        }
+        NoteDouble.prototype.getText = function() {
+            return 'Favourite drink: seltzer'
+        }
+
+        let note = new NoteDouble()
+        let singleNoteView = new SingleNoteView(note)
+        let html = singleNoteView.toHTML()
+        assert.isEqual(html, '<div>Favourite drink: seltzer</div>')
+    }
+    singleNoteView();
+
+
+
     assert.showLog()
 
 }
