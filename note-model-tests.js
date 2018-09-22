@@ -6,6 +6,7 @@ function allTests() {
     }
     noteTest();
 
+
     function noteList() {
         let noteList = new NoteList()
         noteList.createNote('My favourite language is JavaScript');
@@ -21,7 +22,8 @@ function allTests() {
         noteList.createNote('Favourite drink: seltzer');
         let noteListView = new NoteListView(noteList);
         assert.isEqual(noteListView.toHTML(),
-        "<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>")
+        "<ul><li><a href='#notes/2'><div>Favourite food: pest</div></a></li>" +
+            "<li><a href='#notes/3'><div>Favourite drink: sel</div></a></li></ul>")
     }
     noteListView()
 
@@ -71,6 +73,20 @@ function allTests() {
     }
     singleNoteView();
 
+
+    function noteID() {
+        let note1 = new Note('My favourite language is JavaScript')
+        // note1._ID = 0;
+
+        let note2 = new Note('My second favourite language is Python')
+        // note2._ID = 1;
+
+        // correct way to stub the ID? Mocking behaviour I want to test
+        // assert.isEqual(note1.getID(), 0);
+        // assert.isEqual(note2.getID(), 1);
+        assert.isNotEqual(note1, note2);
+    }
+    noteID()
 
 
     assert.showLog()

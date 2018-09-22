@@ -6,7 +6,8 @@
 
     NoteListView.prototype.toHTML = function() {
         let notesArray = this.noteList.getAllNotes();
-        let notesArrayHTML = notesArray.map(elem => `<li><div>${elem.getText()}</div></li>`)
+        let notesArrayHTML = notesArray
+            .map(elem => `<li><a href='#notes/${elem.getID()}'><div>${elem.getText().slice(0, 20)}</div></a></li>`)
             .join('');
         let notesHTML = `<ul>${notesArrayHTML}</ul>`
         return notesHTML

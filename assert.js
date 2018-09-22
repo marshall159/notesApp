@@ -11,6 +11,12 @@ var assert = {
         } else this.log.push(`Pass: ${assertionOne} == ${assertionTwo}`)
 
     },
+    isNotEqual: function (assertionOne, assertionTwo) {
+        if (assertionOne == assertionTwo) {
+            this.log.push(Error(`Assertion failed: ${assertionOne} and ${assertionTwo} match`))
+        } else this.log.push(`Pass: ${assertionOne} !== ${assertionTwo}`)
+
+    },
     isSameObject: function(assertionOne, assertionTwo) {
         if (!Object.is(assertionOne, assertionTwo)) {
             this.log.push(Error(`Assertion failed: ${assertionOne} and ${assertionTwo} are not the same object`))
@@ -25,9 +31,9 @@ var assert = {
     showLog: function () {
         this.log.forEach(err => {
             if ((typeof err) === 'string') {
-                console.log(err)
+                console.log(err);
             } else {
-                console.log(`${err.name} Message: ${err.message}`);
+                console.error(`${err.name} Message: ${err.message}`);
                 console.log(`Stack trace: ${err.stack}`)
             }
         })
