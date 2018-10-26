@@ -1,11 +1,11 @@
 
 
 (function (exports) {
-    let noteID = 0;
+    // let noteID = 0;
 
-    function Note(string) {
+    function Note(string, id) {
         this.text = string;
-        this._ID = noteID++;
+        this._ID = id;
     }
 
     Note.prototype.getText = function() {
@@ -15,7 +15,6 @@
     Note.prototype.getID = function() {
         return this._ID
     }
-
 
     exports.Note = Note;
 })(this)

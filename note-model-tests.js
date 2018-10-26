@@ -22,8 +22,8 @@ function allTests() {
         noteList.createNote('Favourite drink: seltzer');
         let noteListView = new NoteListView(noteList);
         assert.isEqual(noteListView.toHTML(),
-        "<ul><li><a href='#notes/2'><div>Favourite food: pest</div></a></li>" +
-            "<li><a href='#notes/3'><div>Favourite drink: sel</div></a></li></ul>")
+        "<ul><li><a href='#notes/0'><div>Favourite food: pest</div></a></li>" +
+            "<li><a href='#notes/1'><div>Favourite drink: sel</div></a></li></ul>")
     }
     noteListView()
 
@@ -37,7 +37,7 @@ function allTests() {
         function NoteListViewDouble() {}
 
         NoteListViewDouble.prototype.toHTML = function() {
-            return '<ul><li><div>Favourite drink: seltzer</div></li></ul>'
+            return '<ul><li><a href="#notes/1"><div>Favourite drink: seltzer</div></a></li></ul>'
         }
 
         let noteList = new NoteListDouble();
@@ -53,7 +53,7 @@ function allTests() {
 
         controller.insertHTML(elem);
         assert.isEqual(elem.innerHTML,
-            '<ul><li><div>Favourite drink: seltzer</div></li></ul>')
+            '<ul><li><a href="#notes/1"><div>Favourite drink: seltzer</div></a></li></ul>')
 
     }
     noteController()
@@ -74,6 +74,13 @@ function allTests() {
     singleNoteView();
 
 
+    function loadSingleNote() {
+        // listen for hash change
+        // change content of app
+        // app content should now correspong to hash id value
+    }
+    loadSingleNote();
+
     function noteID() {
         let note1 = new Note('My favourite language is JavaScript')
         // note1._ID = 0;
@@ -87,6 +94,8 @@ function allTests() {
         assert.isNotEqual(note1, note2);
     }
     noteID()
+
+
 
 
     assert.showLog()
